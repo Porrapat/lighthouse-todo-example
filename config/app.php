@@ -148,11 +148,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,

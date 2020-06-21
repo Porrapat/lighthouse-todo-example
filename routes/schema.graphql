@@ -4,7 +4,7 @@
 type User {
     id: ID!
     name: String!
-    email: String! @field(class: "App\\Http\\GraphQL\\Types\\UserType" method:"email")
+    email: String! @field(resolver: "App\\Http\\GraphQL\\Types\\UserType@email")
     created_at: String!
     updated_at: String!
 
@@ -17,7 +17,7 @@ type Query {
 }
 
 type Mutation {
-    updateAccount(name: String email: String @validate(rules: ["email"])): User
-        @field(class: "App\\Http\\GraphQL\\Mutations\\AccountMutator" method: "update")
-        @event(class: "App\\Events\\AccountUpdated")
+    updateAccount(name: String email: String @rules(apply: ["email"])): User
+        @field(resolver: "App\\Http\\GraphQL\\Mutations\\AccountMutator@update")
+        # @event(class: "App\\Events\\AccountUpdated")
 }
